@@ -1,11 +1,9 @@
-import { Fragment } from 'react'
 import './App.css'
+import SideBar from './components/SideBar'
 
 function App() {
   return (
-    <Fragment>
-      <div>Hello</div>
-    </Fragment>
+      <SideBar/>
   )
 }
 
