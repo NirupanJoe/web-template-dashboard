@@ -13,6 +13,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import NavBar from './NavBar';
+import Router from './Router';
 
 const drawerWidth = 240;
 
@@ -122,6 +123,7 @@ export default function MiniDrawer() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
+        <Router/>
       </Box>
     </Box>
   );
