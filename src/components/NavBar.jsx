@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -129,7 +128,6 @@ const NavBar = ({ open, setOpen }) => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" bgcolor='#f5f5f5'>
         <Toolbar>
           <IconButton
             onClick={handleDrawer} 
@@ -196,7 +194,6 @@ const NavBar = ({ open, setOpen }) => {
               </IconButton>
           </Box>
         </Toolbar>
-      </AppBar>
       {renderMobileMenu}
     </Box>
   );
