@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { Grid, Stack, Typography } from '@mui/material'
 import StatisticsCards from './StatisticsCards';
 import RecentOrders from './RecentOrders';
+import ActivityChart from './ActivityCards';
 
 function DashBoard() {
   return (
@@ -12,8 +13,8 @@ function DashBoard() {
       <Grid container spacing={2} mt={2}>
         <Grid item xs={12} md={8} >
           <Stack marginBottom={2}>
-
             <StatisticsCards />
+            <ActivityChart />
             <RecentOrders />
           </Stack>
         </Grid>
