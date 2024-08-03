@@ -5,6 +5,7 @@ import RecentOrders from './RecentOrders';
 import ActivityChart from './ActivityCards';
 import NetProfitSection from './NetProfitSection';
 import GoalsSection from './GoalsSection';
+import CustomerFeedback from './CustomerFeedback';
 
 function DashBoard() {
   return (
@@ -24,6 +25,7 @@ function DashBoard() {
         <Stack marginBottom={2}>
           <NetProfitSection />
           <GoalsSection />
+          <CustomerFeedback />
           </Stack>
         </Grid>
       </Grid>
