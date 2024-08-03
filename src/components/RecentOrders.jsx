@@ -1,5 +1,16 @@
 import React from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Avatar, Stack, Box, createTheme, ThemeProvider } from '@mui/material';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+  Avatar,
+  Stack,
+  Box
+} from '@mui/material';
 
 const orders = [
   { customer: 'Wade Warren', orderNo: '15478256', amount: '$124.00', status: 'Delivered', avatar: 'path/to/avatar1.jpg' },
@@ -40,51 +51,40 @@ const getStatusStyle = (status) => {
 
 
 function RecentOrders() {
-  const darkTheme = createTheme({
-    palette: {
-      mode: 'dark',
-      text: {
-        primary: '#ffffff',
-        secondary: '#a1a1a1',
-      },
-    },
-  });
 
   return (
-    <ThemeProvider theme={darkTheme}>
-      <Box mt={3} bgcolor={'#202028'} padding={2}>
-        <Typography variant="h6">Recent Orders</Typography>
-        <TableContainer sx={{ mt: 2 }} >
-          <Table >
-            <TableHead>
-              <TableRow>
-                <TableCell>Customer</TableCell>
-                <TableCell>Order No.</TableCell>
-                <TableCell>Amount</TableCell>
-                <TableCell>Status</TableCell>
+    <Box mt={3} bgcolor={'#202028'} padding={2}>
+      <Typography variant="h6">Recent Orders</Typography>
+      <TableContainer sx={{ mt: 2 }} >
+        <Table >
+          <TableHead>
+            <TableRow>
+              <TableCell>Customer</TableCell>
+              <TableCell>Order No.</TableCell>
+              <TableCell>Amount</TableCell>
+              <TableCell>Status</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {orders.map((order, index) => (
+              <TableRow key={index}>
+                <TableCell>
+                  <Stack direction="row" alignItems="center" spacing={2} >
+                    <Avatar src={order.avatar} alt={order.customer} />
+                    <Typography>{order.customer}</Typography>
+                  </Stack>
+                </TableCell>
+                <TableCell>{order.orderNo}</TableCell>
+                <TableCell>{order.amount}</TableCell>
+                <TableCell>
+                  <Box textAlign="center" sx={getStatusStyle(order.status)}>{order.status}</Box>
+                </TableCell>
               </TableRow>
-            </TableHead>
-            <TableBody>
-              {orders.map((order, index) => (
-                <TableRow key={index}>
-                  <TableCell>
-                    <Stack direction="row" alignItems="center" spacing={2} >
-                      <Avatar src={order.avatar} alt={order.customer} />
-                      <Typography>{order.customer}</Typography>
-                    </Stack>
-                  </TableCell>
-                  <TableCell>{order.orderNo}</TableCell>
-                  <TableCell>{order.amount}</TableCell>
-                  <TableCell>
-                    <Box textAlign="center" sx={getStatusStyle(order.status)}>{order.status}</Box>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Box>
-    </ThemeProvider>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Box>
   );
 }
 
