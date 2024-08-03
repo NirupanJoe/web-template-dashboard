@@ -3,6 +3,7 @@ import { Grid, Stack, Typography } from '@mui/material'
 import StatisticsCards from './StatisticsCards';
 import RecentOrders from './RecentOrders';
 import ActivityChart from './ActivityCards';
+import NetProfitSection from './NetProfitSection';
 
 function DashBoard() {
   return (
@@ -19,6 +20,9 @@ function DashBoard() {
           </Stack>
         </Grid>
         <Grid item xs={12} md={4}>
+        <Stack marginBottom={2}>
+          <NetProfitSection />
+          </Stack>
         </Grid>
       </Grid>
     </Fragment>
