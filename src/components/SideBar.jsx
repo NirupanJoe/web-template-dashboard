@@ -78,7 +78,7 @@ export default function SideBar() {
       <NavBar open={open} setOpen={setOpen}/>
       </AppBar>
       <Drawer variant="permanent" style={{ display: !open ? 'none' : 'block' }}>
-        <Box sx={{ width: "10%", height: "10%" }}/>
+      <DrawerHeader />
         <List>
           {items.map(({ key, icon: Icon }) => (
             <ListItem key={key} disablePadding sx={{ display: 'block' }}>
