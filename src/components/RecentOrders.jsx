@@ -25,22 +25,22 @@ const getStatusStyle = (status) => {
   switch (status) {
     case 'Delivered':
       return {
-        color: '#4caf50',
-        backgroundColor: '#e8f5e9',
+        color: '#61ba65',
+        backgroundColor: '#15311e',
         borderRadius: '12px',
         padding: '5px 10px',
       };
     case 'Cancelled':
       return {
-        color: '#f44336',
-        backgroundColor: '#ffebee',
+        color: '#f54e42',
+        backgroundColor: '#3f0009',
         borderRadius: '12px',
         padding: '5px 10px',
       };
     case 'Pending':
       return {
-        color: '#ff9800',
-        backgroundColor: '#fff3e0',
+        color: '#ffa21a',
+        backgroundColor: '#462b00',
         borderRadius: '12px',
         padding: '5px 10px',
       };
