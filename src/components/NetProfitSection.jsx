@@ -5,7 +5,7 @@ import { Box, CircularProgress, Stack, Typography } from '@mui/material'
 const NetProfitSection = () => {
   return (
     <Box display={'flex'} justifyContent={'space-between'} borderRadius={2} sx={{ p: 2, mb: 2, backgroundColor: '#202028', height: '120px' }}>
-      <Box>
+      <Box display={'flex'} flexDirection={'column'} justifyContent={'space-around'}>
         <Typography mb={1} fontSize={12} color="#b0b0b0">Net Profit</Typography>
         <Typography fontSize={"1.5rem"} fontWeight={700} variant='h4' color="textPrimary" gutterBottom>$ 6759.25</Typography>
         <Stack direction="row" alignItems="center" spacing={1}>
