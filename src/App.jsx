@@ -14,13 +14,16 @@ const darkTheme = createTheme({
       primary: '#EEEFF3',
       secondary: '#a1a1a1',
     },
+    primary: {
+      main: '#7294FF',
+    },
   },
 });
 
 function App() {
   return (
     <ThemeProvider theme={darkTheme}>
-      <Box display={{ sx: "block", md: "flex"}}>
+      <Box display={{ sx: "block", md: "flex" }}>
         <SideBar />
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Router />
