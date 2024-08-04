@@ -7,6 +7,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import HomeIcon from '@mui/icons-material/Home';
+import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined';
 import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
@@ -65,6 +66,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 var items = [
   { key: 'Home', icon: HomeIcon, to: '/dashboard' },
+  { key: 'Reports', icon: AssessmentOutlinedIcon, to: '/reports' },
   { key: 'Assignment', icon: AssignmentTurnedInOutlinedIcon, to: '/assignment' },
   { key: 'Inventory', icon: InventoryOutlinedIcon, to: '/inventory' },
   { key: 'Orders', icon: LocalMallOutlinedIcon, to: '/orders' },
