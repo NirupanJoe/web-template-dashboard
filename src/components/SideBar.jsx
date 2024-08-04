@@ -13,6 +13,7 @@ import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import NavBar from './NavBar';
 import { useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import { Link, useLocation } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -63,25 +64,27 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 var items = [
-  { key: 'Home', icon: HomeIcon },
-  { key: 'Assignment', icon: AssignmentTurnedInOutlinedIcon },
-  { key: 'Inventory', icon: InventoryOutlinedIcon },
-  { key: 'Orders', icon: LocalMallOutlinedIcon }
+  { key: 'Home', icon: HomeIcon, to: '/dashboard' },
+  { key: 'Assignment', icon: AssignmentTurnedInOutlinedIcon, to: '/assignment' },
+  { key: 'Inventory', icon: InventoryOutlinedIcon, to: '/inventory' },
+  { key: 'Orders', icon: LocalMallOutlinedIcon, to: '/orders' },
 ]
 
 export default function SideBar() {
   const theme = useTheme();
+  const primaryColor = theme.palette.primary.main;
   const isMediumScreen = useMediaQuery(theme.breakpoints.down('md'));
+  const { pathname } = useLocation();
   const [open, setOpen] = React.useState(false);
 
-  React.useEffect(() => {    
+  React.useEffect(() => {
     if (isMediumScreen) {
       setOpen(false);
     } else {
       setOpen(true);
     }
   }, [isMediumScreen]);
-  
+
   return (
     <React.Fragment>
       <AppBar position="fixed">
@@ -90,25 +93,28 @@ export default function SideBar() {
       <Drawer variant="permanent" style={{ display: !open ? 'none' : 'block' }}>
         <DrawerHeader />
         <List>
-          {items.map(({ key, icon: Icon }) => (
+          {items.map(({ key, icon: Icon, to }) => (
             <ListItem key={key} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
+              <Link to={to}>
+                <ListItemButton
                   sx={{
-                    minWidth: 0,
-                    mr: 'auto',
+                    minHeight: 48,
                     justifyContent: 'center',
+                    px: 2.5,
+                    borderLeft: pathname === to ? `4px solid ${primaryColor}` : 'none',
                   }}
                 >
-                  <Icon sx={{ color: '#A0A0A2' }} />
-                </ListItemIcon>
-              </ListItemButton>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: 'auto',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <Icon sx={{ color: pathname === to ? primaryColor : '#A0A0A2' }} />
+                  </ListItemIcon>
+                </ListItemButton>
+              </Link>
             </ListItem>
           ))}
         </List>
