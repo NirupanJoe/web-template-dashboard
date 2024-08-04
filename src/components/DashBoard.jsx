@@ -6,10 +6,12 @@ import ActivityChart from './ActivityCards';
 import NetProfitSection from './NetProfitSection';
 import GoalsSection from './GoalsSection';
 import CustomerFeedback from './CustomerFeedback';
+import MetaData from './layout/MetaData';
 
 function DashBoard() {
   return (
     <Fragment>
+      <MetaData title={"DashBoard"}/>
       <Typography variant="h5">
         DashBoard
       </Typography>
