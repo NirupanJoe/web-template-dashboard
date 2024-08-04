@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
 import List from '@mui/material/List';
@@ -12,7 +11,8 @@ import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurned
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import NavBar from './NavBar';
-import Router from './Router';
+import { useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 const drawerWidth = 240;
 
@@ -27,7 +27,7 @@ const closedMixin = (theme) => ({
   [theme.breakpoints.up('sm')]: {
     width: `calc(${theme.spacing(8)} + 1px)`,
   },
-  backgroundColor: "#202028"
+  border: 'none',
 });
 
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -42,8 +42,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme }) => ({
+  backgroundImage: 'none',
   zIndex: theme.zIndex.drawer + 1,
-  backgroundColor: "#202028",
   boxShadow: 'none',
   transition: theme.transitions.create(['width', 'margin'], {
     easing: theme.transitions.easing.sharp,
@@ -70,15 +70,25 @@ var items = [
 ]
 
 export default function SideBar() {
-  const [open, setOpen] = React.useState(true);
+  const theme = useTheme();
+  const isMediumScreen = useMediaQuery(theme.breakpoints.down('md'));
+  const [open, setOpen] = React.useState(false);
 
+  React.useEffect(() => {    
+    if (isMediumScreen) {
+      setOpen(false);
+    } else {
+      setOpen(true);
+    }
+  }, [isMediumScreen]);
+  
   return (
-    <Box sx={{ display: 'flex' }}>
+    <React.Fragment>
       <AppBar position="fixed">
-      <NavBar open={open} setOpen={setOpen}/>
+        <NavBar open={open} setOpen={setOpen} />
       </AppBar>
       <Drawer variant="permanent" style={{ display: !open ? 'none' : 'block' }}>
-      <DrawerHeader />
+        <DrawerHeader />
         <List>
           {items.map(({ key, icon: Icon }) => (
             <ListItem key={key} disablePadding sx={{ display: 'block' }}>
@@ -103,10 +113,6 @@ export default function SideBar() {
           ))}
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-        <Router/>
-      </Box>
-    </Box>
+    </React.Fragment>
   );
 }

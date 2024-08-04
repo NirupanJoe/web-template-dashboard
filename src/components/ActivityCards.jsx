@@ -40,7 +40,7 @@ const options = {
 
 const ActivityChart = () => {
   return (
-    <Box mt={3} bgcolor={'#202028'} padding={2}>
+    <Box mt={3} bgcolor={'#202028'} padding={2} borderRadius={2}>
       <Typography variant="h6">Activity</Typography>
       <Box height={200}>
         <Bar data={data} options={options} />

@@ -19,7 +19,7 @@ function StatisticsCards() {
     <Grid container spacing={2}>
       {statistics.map((stat, index) => (
         <Grid item xs={6} md={3} key={index}>
-          <Box bgcolor="#202028" padding={2} className={`stat-card ${stat.color}`}>
+          <Box bgcolor="#202028" padding={2} borderRadius={2} height='120px' className={`stat-card ${stat.color}`}>
             <img src={stat.icon} alt={stat.title} />
             <Typography fontSize={12}>{stat.title}</Typography>
             <Box display="flex" justifyContent="space-between" alignItems="center" mt={2}>

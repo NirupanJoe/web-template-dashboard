@@ -53,7 +53,7 @@ const getStatusStyle = (status) => {
 function RecentOrders() {
 
   return (
-    <Box mt={3} bgcolor={'#202028'} padding={2}>
+    <Box mt={3} bgcolor={'#202028'} padding={2} borderRadius={2} height={560}>
       <Typography variant="h6">Recent Orders</Typography>
       <TableContainer sx={{ mt: 2 }} >
         <Table >

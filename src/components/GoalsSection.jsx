@@ -14,7 +14,7 @@ const goals = [
 
 const GoalsSection = () => {
   return (
-    <Box className="goals" mt={1} height={230} bgcolor={'#202028'} padding={2}>
+    <Box className="goals" mt={1} height={230} bgcolor={'#202028'} padding={2} borderRadius={2}>
       <Stack justifyContent={'space-between'} height={'100%'}>
         {goals.map((goal) => (
           <List dense key={goal.text}>

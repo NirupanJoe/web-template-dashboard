@@ -35,7 +35,7 @@ const feedback = [
 ];
 
 const CustomScrollbar = styled('div')({
-  height: '500px',
+  height: '520px',
   overflowY: 'scroll',
   '&::-webkit-scrollbar': {
     width: '6px',
@@ -51,7 +51,7 @@ const CustomScrollbar = styled('div')({
 
 function CustomerFeedback() {
   return (
-    <Box mt={3} height={540} bgcolor={'#202028'} padding={2} borderRadius={2}>
+    <Box mt={3} height={560} bgcolor={'#202028'} padding={2} borderRadius={2}>
       <Typography variant="h6" color="white">Customers Feedback</Typography>
       <CustomScrollbar>
         <List>

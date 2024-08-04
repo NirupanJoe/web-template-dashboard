@@ -4,7 +4,7 @@ import { Box, CircularProgress, Stack, Typography } from '@mui/material'
 
 const NetProfitSection = () => {
   return (
-    <Box display={'flex'} justifyContent={'space-between'} sx={{ p: 2, mb: 2, borderRadius: '10px', backgroundColor: '#202028', height: '120px' }}>
+    <Box display={'flex'} justifyContent={'space-between'} borderRadius={2} sx={{ p: 2, mb: 2, backgroundColor: '#202028', height: '120px' }}>
       <Box>
         <Typography mb={1} fontSize={12} color="#b0b0b0">Net Profit</Typography>
         <Typography fontSize={"1.5rem"} fontWeight={700} variant='h4' color="textPrimary" gutterBottom>$ 6759.25</Typography>
@@ -20,7 +20,7 @@ const NetProfitSection = () => {
           <Typography variant="body2" fontWeight={800} color="textSecondary">70%</Typography>
           <Typography textAlign='center' fontSize={'46%'} variant="body2" color="textSecondary">Goal Completed</Typography>
         </Box>
-        <Typography variant="caption" color="textSecondary" sx={{ position: 'relative', top: '-30px', fontSize: '10%' }}>
+        <Typography textAlign='center' variant="caption" color="textSecondary" sx={{ position: 'relative', top: '-30px', fontSize: '10%' }}>
           *The values here have been rounded off.
         </Typography>
       </Box>
